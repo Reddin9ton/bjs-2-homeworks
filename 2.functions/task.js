@@ -61,5 +61,6 @@ return sumEvenElement / countEvenElement;
 }
 
 function makeWork (arrOfArr, func) {
+  let maxWorkerResult = arrOfArr[0];
 
 }
