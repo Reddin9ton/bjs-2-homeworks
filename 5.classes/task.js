@@ -11,17 +11,17 @@ class PrintEditionItem {
         this.state *= 1.5;
     }
     set state(newState) {
-        if(newState < 0) {
+        if (newState < 0) {
             this._state = 0;
-        } else if(newState > 100) {
+        } else if (newState > 100) {
             this._state = 100;
-    
-        }else {
+
+        } else {
             this._state = newState;
         }
-        }
+    }
     get state() {
-       return this._state;
+        return this._state;
     }
 }
 
@@ -76,13 +76,13 @@ class Library {
 
     }
     addBook(book) {
-        if(book.state > 30) {
+        if (book.state > 30) {
             this.books.push(book);
         }
     }
     findBookBy(type, value) {
         for (const book of this.books) {
-            if(book[type] === value) {
+            if (book[type] === value) {
                 return book;
             } else {
                 return null;
@@ -101,6 +101,6 @@ class Library {
         }
         return null;
     }
-    
-    
-}        
+
+
+}
