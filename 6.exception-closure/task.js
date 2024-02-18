@@ -1,5 +1,5 @@
 ﻿function parseCount(count) {
-    parse = Number.parseFloat(count);
+    let parse = Number.parseFloat(count);
     if (isNaN(parse)) {
         throw new Error("Невалидное значение");
     } else {
@@ -25,20 +25,18 @@ class Triangle {
         if (sideOne >= (sideTwo + sideThree) || sideTwo >= (sideOne + sideThree) || sideThree >= (sideOne + sideTwo)) {
             throw new Error("Треугольник с такими сторонами не существует");
         }
-        
+
     }
 
- get perimeter() {
-    const perimeter = this.sideOne + this.sideTwo + this.sideThree;
-    return perimeter;
- }
+    get perimeter() {
+        return this.sideOne + this.sideTwo + this.sideThree;;
+    }
 
- get area() {
-    const perimeter = this.perimeter;
-    const p = perimeter / 2;
-    let area = Number(Math.sqrt(p * (p - this.sideOne) * (p - this.sideTwo) * (p - this.sideThree)).toFixed(3));
-    return area;
-}
+    get area() {
+        const perimeter = this.perimeter;
+        const p = perimeter / 2;
+        return Number(Math.sqrt(p * (p - this.sideOne) * (p - this.sideTwo) * (p - this.sideThree)).toFixed(3));
+    }
 }
 
 function getTriangle(sideOne, sideTwo, sideThree) {
@@ -47,8 +45,12 @@ function getTriangle(sideOne, sideTwo, sideThree) {
         return myObject;
     } catch (e) {
         return {
-            perimeter: () => 'Ошибка! Треугольник не существует',
-            area: () => 'Ошибка! Треугольник не существует',
-        };
+            get perimeter() {
+                return "Ошибка! Треугольник не существует";
+            },
+            get area() {
+                return "Ошибка! Треугольник не существует";
+            }
+        }
     }
 }
